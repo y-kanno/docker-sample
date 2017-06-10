@@ -1,4 +1,5 @@
- "containerDefinitions": [
+{
+  "containerDefinitions": [
     {
       "volumesFrom": [],
       "memory": 400,
@@ -83,3 +84,4 @@
   "placementConstraints": [],
   "volumes": [],
   "family": "docker-rails-sample-task"
+}
