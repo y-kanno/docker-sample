@@ -13,8 +13,24 @@ services:
       - db_data
     ports:
       - "3306:3306"
+  nginx:
+    build:
+      context: ./docker/nginx
+    command: bash -c "cron && nginx -g 'daemon off;'"
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes_from:
+      - db_data
+    depends_on:
+      - db_data
+    links:
+      - web
+    mem_limit: 400m
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: ./docker/rails/Dockerfile
     command: [bin/entry]
     volumes_from:
       - db_data
@@ -24,3 +40,4 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    mem_limit: 600m
