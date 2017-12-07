@@ -1,24 +1,39 @@
-# README
+# これは何ですか？
+docker上で動作するrailsサンプルアプリです。
+AWS ECSで動作するtaskファイルも添付しています。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 対象
+OS X ユーザ
 
-Things you may want to cover:
+# 事前準備
+* Docker
 
-* Ruby version
+https://www.docker.com/docker-mac
 
-* System dependencies
+* virtualbox
 
-* Configuration
+https://www.virtualbox.org/
 
-* Database creation
+* docker-compose
 
-* Database initialization
+```
+$ brew install docker-compose
+```
 
-* How to run the test suite
+* docker-machine
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ brew install docker-machine
+```
 
-* Deployment instructions
+# 利用手順
+* cloneしたディレクトリに移動。
 
-* ...
+* docker用仮想マシンをローカルで起動
+```
+$ docker-machine create --driver virtualbox MACHINE_NAME
+$ docker-machine ls
+$ docker-machine env MACHINE_NAME # 仮想マシンのIPアドレスなどが出力されればok.
+$ eval $(docker-machine env MACHINE_NAME) # 仮想マシンへコマンドのパスを通す.
+$ ./docker.sh # dockerコンテナのビルド、起動をまとめて実行
+```
