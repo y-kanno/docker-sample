@@ -27,8 +27,12 @@ $ brew install docker-machine
 * docker用仮想マシンをローカルで起動
 ```
 $ docker-machine create --driver virtualbox MACHINE_NAME
-$ docker-machine ls
+$ docker-machine ls # MACHINE_NAMEのipアドレスを確認（192.168.99.100 など）
 $ docker-machine env MACHINE_NAME # 仮想マシンのIPアドレスなどが出力されればok.
 $ eval $(docker-machine env MACHINE_NAME) # 仮想マシンへコマンドのパスを通す.
 $ ./docker.sh # dockerコンテナのビルド、起動をまとめて実行
 ```
+
+ブラウザを立ち上げ、以下が確認できれば動作ok.
+* ipアドレスで「Yay! You’re on Rails!」が出力.
+* /users にてCRUDが動作していること.
