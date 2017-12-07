@@ -7,22 +7,17 @@ OS X ユーザ
 
 # 事前準備
 * Docker
-
 https://www.docker.com/docker-mac
 
 * virtualbox
-
 https://www.virtualbox.org/
 
 * docker-compose
+* docker-machine
+
 
 ```
 $ brew install docker-compose
-```
-
-* docker-machine
-
-```
 $ brew install docker-machine
 ```
 
